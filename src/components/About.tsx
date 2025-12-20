@@ -72,7 +72,7 @@ const About = () => {
                     <img
                       src={profileImage}
                       alt="Profile"
-                      className="w-full h-full object-cover aspect-square hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top aspect-square hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   
@@ -86,7 +86,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -top-4 -right-4 glass-card px-4 py-2 rounded-full"
+                className="absolute -top-4 -right-4 glass-card px-4 py-2 rounded-full z-30"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -98,7 +98,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-4 -left-4 glass-card px-4 py-2 rounded-full"
+                className="absolute -bottom-4 -left-4 glass-card px-4 py-2 rounded-full z-30"
               >
                 <span className="text-sm font-semibold gradient-text">7+ Years</span>
               </motion.div>

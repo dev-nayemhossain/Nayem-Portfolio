@@ -1,5 +1,5 @@
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const Testimonials = () => {
@@ -48,6 +48,12 @@ const Testimonials = () => {
     );
   };
 
+  // Auto-play effect
+  useEffect(() => {
+    const timer = setInterval(nextTestimonial, 5000); // 5 seconds interval
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section
       id="testimonials"
@@ -76,21 +82,21 @@ const Testimonials = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
+              exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div className="relative bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg border border-gray-200 dark:border-gray-700 rounded-3xl p-8 md:p-12 shadow-xl">
-                <div className="absolute top-6 left-6 text-blue-500 opacity-20">
+              <div className="relative bg-white/5 dark:bg-white/5 backdrop-blur-lg border border-white/10 dark:border-white/5 rounded-3xl p-8 md:p-12 shadow-xl hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-purple-500/10 transition-all duration-500 group">
+                <div className="absolute top-6 left-6 text-blue-500 opacity-20 group-hover:opacity-40 transition-opacity">
                   <Quote size={48} fill="currentColor" />
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
                   <div className="flex-shrink-0">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-50" />
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
                       <img
                         src={testimonials[currentIndex].image}
                         alt={testimonials[currentIndex].name}
@@ -100,12 +106,12 @@ const Testimonials = () => {
                   </div>
 
                   <div className="flex-1 text-center md:text-left">
-                    <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                      {testimonials[currentIndex].content}
+                    <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 leading-relaxed mb-6 italic">
+                      "{testimonials[currentIndex].content}"
                     </p>
 
                     <div>
-                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-400 transition-colors">
                         {testimonials[currentIndex].name}
                       </h4>
                       <p className="text-blue-500 dark:text-blue-400">
