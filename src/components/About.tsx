@@ -54,29 +54,30 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-md mx-auto float">
               {/* Animated Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-2xl opacity-50 animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-vibrant rounded-full blur-2xl opacity-50" />
               
               {/* Photo Container */}
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full p-1 animate-pulse">
-                  <div className="w-full h-full bg-white dark:bg-gray-900 rounded-full" />
-                </div>
+                {/* Gradient Border Ring */}
+                <div className="absolute -inset-[2px] bg-gradient-vibrant rounded-full blur-[2px] opacity-40 animate-pulse" />
                 
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="relative rounded-full overflow-hidden border-4 border-white dark:border-gray-900 shadow-2xl float"
+                  className="relative rounded-full p-[2px] bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-pink-500/40"
                 >
-                  <img
-                    src={profileImage}
-                    alt="Profile"
-                    className="w-full h-full object-cover aspect-square"
-                  />
+                  <div className="rounded-full overflow-hidden bg-white dark:bg-gray-900 border-2 border-white/10 dark:border-white/5">
+                    <img
+                      src={profileImage}
+                      alt="Profile"
+                      className="w-full h-full object-cover aspect-square hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
                   
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-full" />
                 </motion.div>
               </div>
 

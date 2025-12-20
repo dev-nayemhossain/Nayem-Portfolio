@@ -6,16 +6,40 @@ const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 100,
+        damping: 15,
+      },
+    },
+  };
+
   const skillCategories = [
     {
       title: 'Creative Design',
       icon: Palette,
       color: 'from-pink-500 to-rose-500',
+      glow: 'group-hover:shadow-pink-500/50',
       skills: [
         { name: 'Photoshop', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg' },
         { name: 'Illustrator', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg' },
         { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
-        { name: 'Adobe XD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-original.svg' },
+        { name: 'Adobe XD', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg' },
         { name: 'Sketch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg' },
       ]
     },
@@ -23,9 +47,10 @@ const Skills = () => {
       title: 'Video & Motion',
       icon: Film,
       color: 'from-purple-500 to-indigo-500',
+      glow: 'group-hover:shadow-purple-500/50',
       skills: [
-        { name: 'Premiere Pro', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg' },
-        { name: 'After Effects', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg' },
+        { name: 'Premiere Pro', icon: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg' },
+        { name: 'After Effects', icon: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg' },
         { name: 'Blender', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg' },
       ]
     },
@@ -33,7 +58,9 @@ const Skills = () => {
       title: 'Web Development',
       icon: Code2,
       color: 'from-blue-500 to-cyan-500',
+      glow: 'group-hover:shadow-blue-500/50',
       skills: [
+        { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
         { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
         { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
         { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
@@ -58,7 +85,7 @@ const Skills = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
@@ -66,19 +93,19 @@ const Skills = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Skills & <span className="gradient-text">Tools</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A comprehensive toolkit for creating stunning digital experiences
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-balance">
+            A comprehensive toolkit for creating stunning digital experiences, from pixel-perfect designs to scalable code.
           </p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-6 rounded-full" />
+          <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mt-6 rounded-full" />
         </motion.div>
 
-        <div className="space-y-16">
-          {skillCategories.map((category, catIndex) => (
+        <div className="space-y-20">
+          {skillCategories.map((category) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: catIndex * 0.2 }}
+              variants={containerVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} shadow-lg`}>
@@ -89,28 +116,28 @@ const Skills = () => {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                {category.skills.map((skill, index) => (
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                {category.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: (catIndex * 0.2) + (index * 0.05) }}
-                    whileHover={{ y: -5, scale: 1.02 }}
-                    className="group"
+                    variants={itemVariants}
+                    whileHover={{ 
+                      y: -5, 
+                      scale: 1.02,
+                      transition: { duration: 0.2 } 
+                    }}
+                    className={`group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 relative overflow-hidden`}
                   >
-                    <div className="relative h-full p-4 glass-card hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 rounded-xl flex flex-col items-center justify-center gap-3 text-center">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/0 dark:from-white/5 dark:to-white/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      <div className="relative w-12 h-12 flex items-center justify-center bg-gray-50 dark:bg-gray-800 rounded-lg group-hover:scale-110 transition-transform duration-300">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                    <div className="flex flex-col items-center gap-4 relative z-10">
+                      <div className="w-16 h-16 flex items-center justify-center p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors duration-300">
                         <img 
                           src={skill.icon} 
                           alt={skill.name}
-                          className="w-8 h-8 object-contain"
+                          className="w-full h-full object-contain transition-all duration-300 group-hover:scale-110"
                         />
                       </div>
-                      
-                      <span className="font-semibold text-gray-700 dark:text-gray-200 text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <span className="font-semibold text-gray-700 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                         {skill.name}
                       </span>
                     </div>
