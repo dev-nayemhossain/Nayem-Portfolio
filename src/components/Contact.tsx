@@ -99,7 +99,7 @@ const Contact = () => {
                   >
                     <div className="flex items-center gap-5">
                       <div className={`p-4 rounded-lg bg-gradient-to-br ${item.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                        <item.icon className="text-white" size={24} />
+                        <item.icon className="text-white" size={24} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">
@@ -192,7 +192,7 @@ const Contact = () => {
                   className="w-full py-4 px-6 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg hover:shadow-lg hover:shadow-blue-500/25 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group"
                 >
                   Send Message
-                  <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                  <Send size={20} className="group-hover:translate-x-1 transition-transform" strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                 </button>
               </div>
             </form>

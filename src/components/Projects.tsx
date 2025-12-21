@@ -127,14 +127,14 @@ const Projects = () => {
                       whileTap={{ scale: 0.9 }}
                       className="p-3 rounded-full bg-white/90 backdrop-blur-sm text-gray-900 hover:bg-white transition-colors"
                     >
-                      <Eye size={20} />
+                      <Eye size={20} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                     </motion.button>
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       className="p-3 rounded-full bg-white/90 backdrop-blur-sm text-gray-900 hover:bg-white transition-colors"
                     >
-                      <ExternalLink size={20} />
+                      <ExternalLink size={20} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                     </motion.button>
                   </div>
                 </div>

@@ -135,7 +135,7 @@ const About = () => {
                   className="flex items-center gap-4 liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-colors p-4 rounded-xl group"
                 >
                   <div className={`p-3 rounded-lg bg-gradient-to-r ${item.color} shadow-lg group-hover:scale-110 transition-transform`}>
-                    <item.icon className="text-white" size={24} />
+                    <item.icon className="text-white" size={24} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                   </div>
                   <span className="text-gray-900 dark:text-white font-semibold text-lg">
                     {item.text}
@@ -205,7 +205,7 @@ const StatCard = ({
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       <div className="relative liquid-glass hover:-translate-y-2 transition-transform duration-300 rounded-2xl p-8 text-center">
         <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 mb-4 group-hover:scale-110 transition-transform">
-          <stat.icon className="text-white" size={32} />
+          <stat.icon className="text-white" size={32} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
         </div>
         <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
           {count}

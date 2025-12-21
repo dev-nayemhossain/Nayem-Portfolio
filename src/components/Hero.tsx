@@ -22,23 +22,100 @@ const Hero = () => {
       </div>
 
       {/* Floating Particles */}
-      {[...Array(15)].map((_, i) => (
+      {/* Left Side Bubbles - Elegant Upward Drift */}
+      {[...Array(8)].map((_, i) => (
         <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"
+          key={`left-${i}`}
+          className="absolute liquid-glass rounded-full border border-blue-500/20 dark:border-white/10"
+          style={{
+            left: `${Math.random() * 30}%`,
+            width: Math.random() * 60 + 20 + 'px',
+            height: Math.random() * 60 + 20 + 'px',
+          }}
           initial={{
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
+            y: window.innerHeight + 100,
             opacity: 0,
+            scale: 0.5,
           }}
           animate={{
-            y: [null, Math.random() * window.innerHeight],
-            opacity: [0, 1, 0],
+            y: -100,
+            opacity: [0, 0.8, 0], // Increased opacity
+            scale: [0.5, 1, 0.5],
+            x: [0, Math.random() * 50 - 25, 0],
           }}
           transition={{
-            duration: Math.random() * 4 + 3,
+            duration: Math.random() * 10 + 15,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: Math.random() * 10,
+            ease: "linear",
+          }}
+        >
+            <div className="w-full h-full bg-blue-500/10 dark:bg-white/5 rounded-full" />
+        </motion.div>
+      ))}
+
+      {/* Right Side Bubbles - Elegant Upward Drift */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={`right-${i}`}
+          className="absolute liquid-glass rounded-full border border-purple-500/20 dark:border-white/10"
+          style={{
+            right: `${Math.random() * 30}%`, // Fixed: explicit right positioning
+            left: 'auto', // Ensure left is unset
+            width: Math.random() * 80 + 30 + 'px',
+            height: Math.random() * 80 + 30 + 'px',
+          }}
+          initial={{
+            y: window.innerHeight + 100,
+            opacity: 0,
+            scale: 0.5,
+          }}
+          animate={{
+            y: -100,
+            opacity: [0, 0.8, 0], // Increased opacity
+            scale: [0.5, 1, 0.5],
+            x: [0, Math.random() * 50 - 25, 0],
+          }}
+          transition={{
+            duration: Math.random() * 10 + 15,
+            repeat: Infinity,
+            delay: Math.random() * 10,
+            ease: "linear",
+          }}
+         >
+            <div className="w-full h-full bg-purple-500/10 dark:bg-white/5 rounded-full" />
+        </motion.div>
+      ))}
+
+      {/* Glowing Particles - Magic Dust Effect */}
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className={`absolute rounded-full shadow-lg ${
+            i % 3 === 0 ? 'bg-blue-500 shadow-blue-500/50' : 
+            i % 3 === 1 ? 'bg-purple-500 shadow-purple-500/50' : 
+            'bg-pink-500 shadow-pink-500/50'
+          }`}
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            width: Math.random() * 4 + 2 + 'px', // Slightly larger
+            height: Math.random() * 4 + 2 + 'px',
+          }}
+          initial={{
+            opacity: 0,
+            scale: 0,
+          }}
+          animate={{
+            opacity: [0, 0.6, 0],
+            scale: [0, 1.2, 0],
+            y: [0, -60],
+          }}
+          transition={{
+            duration: Math.random() * 3 + 3,
+            repeat: Infinity,
+            delay: Math.random() * 3,
+            ease: "easeInOut",
           }}
         />
       ))}

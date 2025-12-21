@@ -96,7 +96,7 @@ const Services = () => {
                   <div
                     className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
-                    <service.icon className="text-white" size={28} />
+                    <service.icon className="text-white" size={28} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                   </div>
 
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">

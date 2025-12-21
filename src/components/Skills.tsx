@@ -109,7 +109,7 @@ const Skills = () => {
             >
               <div className="flex items-center gap-4 mb-8">
                 <div className={`p-3 rounded-xl bg-gradient-to-br ${category.color} shadow-lg`}>
-                  <category.icon className="text-white" size={24} />
+                  <category.icon className="text-white" size={24} strokeWidth={2} fill="currentColor" fillOpacity={0.2} />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
                   {category.title}
