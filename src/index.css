@@ -246,10 +246,10 @@
 /* Liquid Glass Utilities */
 @layer components {
   .liquid-glass {
-    @apply bg-white/5 dark:bg-black/5 backdrop-blur-[20px] saturate-150 border border-white/20 dark:border-white/10 shadow-xl;
+    @apply bg-white/40 dark:bg-black/20 backdrop-blur-[20px] saturate-150 border border-white/40 dark:border-white/10 shadow-xl;
     box-shadow: 
-      0 8px 32px 0 rgba(31, 38, 135, 0.15),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      0 8px 32px 0 rgba(31, 38, 135, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2);
   }
 
   .liquid-glass-highlight {
@@ -259,6 +259,10 @@
       rgba(255, 255, 255, 0.05) 40%,
       rgba(255, 255, 255, 0) 100%
     );
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
   }
 }
 

@@ -56,10 +56,10 @@ const About = () => {
           >
             <div className="relative max-w-md mx-auto float">
               {/* Animated Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-vibrant rounded-full blur-2xl opacity-50" />
+              <div className="absolute inset-0 bg-gradient-vibrant rounded-full blur-2xl opacity-50 z-0" />
               
               {/* Photo Container */}
-              <div className="relative">
+              <div className="relative z-10">
                 {/* Gradient Border Ring */}
                 <div className="absolute -inset-[2px] bg-gradient-vibrant rounded-full blur-[2px] opacity-40 animate-pulse" />
                 
@@ -86,7 +86,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -top-4 -right-4 liquid-glass px-4 py-2 rounded-full z-30"
+                className="absolute -top-4 -right-4 liquid-glass px-4 py-2 rounded-full z-[60]"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -98,7 +98,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-4 -left-4 liquid-glass px-4 py-2 rounded-full z-30"
+                className="absolute -bottom-4 -left-4 liquid-glass px-4 py-2 rounded-full z-[60]"
               >
                 <span className="text-sm font-semibold gradient-text">7+ Years</span>
               </motion.div>
