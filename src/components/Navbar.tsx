@@ -79,7 +79,9 @@ const Navbar = () => {
                 key={item}
                 onClick={() => handleNavigation(item)}
                 className={`text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors ${
-                    location.pathname === '/portfolio' && item === 'Portfolio' ? 'text-blue-500 font-bold' : ''
+                    item === 'Portfolio' 
+                    ? 'font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent' 
+                    : ''
                 }`}
               >
                 {item}
@@ -127,7 +129,9 @@ const Navbar = () => {
                 key={item}
                 onClick={() => handleNavigation(item)}
                 className={`block w-full text-left py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors ${
-                     location.pathname === '/portfolio' && item === 'Portfolio' ? 'text-blue-500 font-bold' : ''
+                     item === 'Portfolio' 
+                    ? 'font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent' 
+                    : ''
                 }`}
               >
                 {item}
