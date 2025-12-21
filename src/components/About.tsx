@@ -86,11 +86,14 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -top-4 -right-4 liquid-glass px-4 py-2 rounded-full z-[60]"
+                className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl z-50 border border-gray-100 dark:border-gray-700"
               >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                  <span className="text-sm font-semibold text-gray-900 dark:text-white">Available</span>
+                <div className="flex items-center gap-3">
+                  <div className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </div>
+                  <span className="text-sm font-bold text-gray-900 dark:text-white">Available</span>
                 </div>
               </motion.div>
 
@@ -98,9 +101,10 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-4 -left-4 liquid-glass px-4 py-2 rounded-full z-[60]"
+                className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl z-50 border border-gray-100 dark:border-gray-700 flex flex-col items-center justify-center text-center"
               >
-                <span className="text-sm font-semibold gradient-text">7+ Years</span>
+                <span className="text-sm font-bold gradient-text">7+ Years</span>
+                <span className="block text-xs text-gray-500 dark:text-gray-400 font-medium">Experience</span>
               </motion.div>
             </div>
           </motion.div>
