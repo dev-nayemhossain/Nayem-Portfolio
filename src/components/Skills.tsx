@@ -126,7 +126,7 @@ const Skills = () => {
                       scale: 1.02,
                       transition: { duration: 0.2 } 
                     }}
-                    className={`group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 relative overflow-hidden`}
+                    className={`group liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-colors rounded-2xl p-6 relative overflow-hidden`}
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
                     <div className="flex flex-col items-center gap-4 relative z-10">

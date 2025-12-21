@@ -238,7 +238,38 @@
 
 /* Smooth Transitions */
 * {
-  transition-property: background-color, border-color, color, fill, stroke;
+  transition-property: background-color, border-color, color, fill, stroke, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+/* Liquid Glass Utilities */
+@layer components {
+  .liquid-glass {
+    @apply bg-white/5 dark:bg-black/5 backdrop-blur-[20px] saturate-150 border border-white/20 dark:border-white/10 shadow-xl;
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.15),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+
+  .liquid-glass-highlight {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  }
+}
+
+/* Fluid Animation Keyframes */
+@keyframes fluid-drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -50px) rotate(10deg); }
+  66% { transform: translate(-20px, 20px) rotate(-5deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.animate-fluid {
+  animation: fluid-drift 20s ease-in-out infinite;
 }

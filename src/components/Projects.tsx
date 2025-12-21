@@ -112,7 +112,7 @@ const Projects = () => {
               layout
               className="group relative"
             >
-              <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.image}

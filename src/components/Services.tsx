@@ -87,7 +87,7 @@ const Services = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="relative h-full glass-card-hover rounded-2xl p-8">
+              <div className="relative h-full liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-colors rounded-2xl p-8">
                 <div
                   className={`absolute inset-0 opacity-0 group-hover:opacity-10 bg-gradient-to-br ${service.gradient} rounded-2xl transition-opacity duration-300`}
                 />

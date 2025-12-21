@@ -95,7 +95,7 @@ const Contact = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                     whileHover={{ scale: 1.02, x: 5 }}
-                    className="glass-card p-6 rounded-xl group cursor-pointer"
+                    className="liquid-glass p-6 rounded-xl group cursor-pointer hover:bg-white/10 dark:hover:bg-white/5 transition-colors"
                   >
                     <div className="flex items-center gap-5">
                       <div className={`p-4 rounded-lg bg-gradient-to-br ${item.color} shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -123,7 +123,7 @@ const Contact = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="glass-card p-8 md:p-10 rounded-2xl border-t border-white/50 dark:border-white/10 shadow-2xl relative"
+              className="liquid-glass p-8 md:p-10 rounded-2xl relative"
             >
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
                 Send a Message

@@ -86,7 +86,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -top-4 -right-4 glass-card px-4 py-2 rounded-full z-30"
+                className="absolute -top-4 -right-4 liquid-glass px-4 py-2 rounded-full z-30"
               >
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
@@ -98,7 +98,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-4 -left-4 glass-card px-4 py-2 rounded-full z-30"
+                className="absolute -bottom-4 -left-4 liquid-glass px-4 py-2 rounded-full z-30"
               >
                 <span className="text-sm font-semibold gradient-text">7+ Years</span>
               </motion.div>
@@ -132,7 +132,7 @@ const About = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  className="flex items-center gap-4 glass-card-hover p-4 rounded-xl group"
+                  className="flex items-center gap-4 liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-colors p-4 rounded-xl group"
                 >
                   <div className={`p-3 rounded-lg bg-gradient-to-r ${item.color} shadow-lg group-hover:scale-110 transition-transform`}>
                     <item.icon className="text-white" size={24} />
@@ -203,7 +203,7 @@ const StatCard = ({
       className="relative group"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      <div className="relative glass-card-hover rounded-2xl p-8 text-center">
+      <div className="relative liquid-glass hover:-translate-y-2 transition-transform duration-300 rounded-2xl p-8 text-center">
         <div className="inline-flex p-4 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 mb-4 group-hover:scale-110 transition-transform">
           <stat.icon className="text-white" size={32} />
         </div>
