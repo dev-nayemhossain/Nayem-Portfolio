@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,14 +21,36 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
+    if (location.pathname !== '/') {
+        navigate('/');
+        // Wait for navigation then scroll
+        setTimeout(() => {
+             const element = document.getElementById(id);
+             if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+             }
+        }, 100);
+    } else {
+         const element = document.getElementById(id);
+         if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+         } else if (id === 'hero') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+         }
     }
+    setIsMobileMenuOpen(false);
   };
 
-  const navItems = ['Home', 'About', 'Experience', 'Services', 'Skills', 'Projects', 'Blog', 'Testimonials', 'Contact'];
+  const handleNavigation = (item: string) => {
+      if (item === 'Portfolio') {
+          navigate('/portfolio');
+          setIsMobileMenuOpen(false);
+      } else {
+          scrollToSection(item.toLowerCase());
+      }
+  };
+
+  const navItems = ['Home', 'About', 'Experience', 'Services', 'Skills', 'Projects', 'Blog', 'Portfolio', 'Contact'];
 
   return (
     <motion.nav
@@ -46,12 +72,15 @@ const Navbar = () => {
             Nayem Hossain
           </motion.div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                onClick={() => handleNavigation(item)}
+                className={`text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors ${
+                    location.pathname === '/portfolio' && item === 'Portfolio' ? 'text-blue-500 font-bold' : ''
+                }`}
               >
                 {item}
               </button>
@@ -66,6 +95,7 @@ const Navbar = () => {
             </motion.button>
           </div>
 
+          {/* Mobile Menu Toggle */}
           <div className="md:hidden flex items-center space-x-4">
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -84,6 +114,7 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
@@ -94,8 +125,10 @@ const Navbar = () => {
             {navItems.map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className="block w-full text-left py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                onClick={() => handleNavigation(item)}
+                className={`block w-full text-left py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors ${
+                     location.pathname === '/portfolio' && item === 'Portfolio' ? 'text-blue-500 font-bold' : ''
+                }`}
               >
                 {item}
               </button>

@@ -1,30 +1,37 @@
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Services from './components/Services';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Blog from './components/Blog';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Home from './pages/Home';
+import Portfolio from './pages/Portfolio';
+
+// Smooth scroll wrapper to handle hash navigation on route change
+const ScrollToTop = () => {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+};
 
 function App() {
   return (
-    <div className="min-h-screen bg-animated-gradient dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <Router>
+      <ScrollToTop />
       <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Services />
-      <Skills />
-      <Projects />
-      <Blog />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+        </Routes>
+    </Router>
   );
 }
 
