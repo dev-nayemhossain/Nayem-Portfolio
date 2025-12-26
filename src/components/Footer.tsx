@@ -47,10 +47,20 @@ const Footer = () => {
             className="lg:col-span-2"
           >
             <div 
-              className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-6 cursor-pointer inline-block"
+              className="flex items-center gap-3 mb-6 cursor-pointer inline-flex group"
               onClick={scrollToTop}
             >
-              Nayem Hossain
+              <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
+                  <img 
+                      src="/logo.png" 
+                      alt="Logo" 
+                      className="relative h-10 w-10 object-contain p-1 rounded-full border-2 border-white/50 dark:border-white/10 shadow-lg bg-black" 
+                  />
+              </div>
+              <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent transform group-hover:scale-[1.02] transition-transform duration-300">
+                Nayem Hossain
+              </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-md">
               A passionate Professional Graphics Designer & Web Developer crafting pixel-perfect designs, engaging video content, and high-performance web applications.

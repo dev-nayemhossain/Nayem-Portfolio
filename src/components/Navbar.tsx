@@ -66,10 +66,20 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer group"
             onClick={() => scrollToSection('hero')}
           >
-            Nayem Hossain
+            <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-300"></div>
+                <img 
+                    src="/logo.png" 
+                    alt="Logo" 
+                    className="relative h-10 w-10 object-contain p-1 rounded-full border-2 border-white/50 dark:border-white/10 shadow-lg bg-black" 
+                />
+            </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent transform group-hover:scale-[1.02] transition-transform duration-300">
+              Nayem Hossain
+            </span>
           </motion.div>
 
           {/* Desktop Menu */}
