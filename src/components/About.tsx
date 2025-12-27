@@ -39,7 +39,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             About <span className="gradient-text">Me</span>
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full" />
@@ -68,7 +68,7 @@ const About = () => {
                   transition={{ duration: 0.3 }}
                   className="relative rounded-full p-[2px] bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-pink-500/40"
                 >
-                  <div className="rounded-full overflow-hidden bg-white dark:bg-gray-900 border-2 border-white/10 dark:border-white/5">
+                  <div className="rounded-full overflow-hidden bg-white dark:bg-gray-900 border-2 border-white/10 dark:border-white/5 shadow-2xl shadow-blue-500/20">
                     <img
                       src={profileImage}
                       alt="Profile"
@@ -86,7 +86,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="absolute -top-6 -right-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl z-50 border border-gray-100 dark:border-gray-700"
+                className="absolute -top-8 -right-8 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl z-50 border border-gray-100 dark:border-gray-700"
               >
                 <div className="flex items-center gap-3">
                   <div className="relative flex h-3 w-3">
@@ -101,7 +101,7 @@ const About = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 1 }}
-                className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-xl z-50 border border-gray-100 dark:border-gray-700 flex flex-col items-center justify-center text-center"
+                className="absolute -bottom-8 -left-8 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-2xl z-50 border border-gray-100 dark:border-gray-700 flex flex-col items-center justify-center text-center"
               >
                 <span className="text-sm font-bold gradient-text">7+ Years</span>
                 <span className="block text-xs text-gray-500 dark:text-gray-400 font-medium">Experience</span>
@@ -117,7 +117,7 @@ const About = () => {
             className="space-y-6"
           >
             <div>
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
                 Professional Graphics Designer & Web Developer
               </h3>
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">

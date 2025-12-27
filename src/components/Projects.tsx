@@ -1,58 +1,16 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { ExternalLink, Eye } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { ExternalLink, Eye, Play } from 'lucide-react';
+import { projects } from '../data/projects';
 
 const Projects = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [activeFilter, setActiveFilter] = useState('All');
+  const navigate = useNavigate();
 
   const filters = ['All', 'Design', 'Web', 'UI/UX'];
-
-  const projects = [
-    {
-      title: 'E-Commerce Platform',
-      category: 'Web',
-      description: 'Modern e-commerce solution with seamless checkout experience',
-      image: 'https://images.pexels.com/photos/34577/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-blue-500 to-cyan-500',
-    },
-    {
-      title: 'Brand Identity Design',
-      category: 'Design',
-      description: 'Complete branding package for a tech startup',
-      image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-purple-500 to-pink-500',
-    },
-    {
-      title: 'SaaS Dashboard',
-      category: 'UI/UX',
-      description: 'Analytics dashboard with real-time data visualization',
-      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-green-500 to-emerald-500',
-    },
-    {
-      title: 'Mobile App Design',
-      category: 'UI/UX',
-      description: 'Fitness tracking app with gamification features',
-      image: 'https://images.pexels.com/photos/147413/twitter-facebook-together-exchange-of-information-147413.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-orange-500 to-red-500',
-    },
-    {
-      title: 'Portfolio Website',
-      category: 'Web',
-      description: 'Creative portfolio for a professional photographer',
-      image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-indigo-500 to-purple-500',
-    },
-    {
-      title: 'Restaurant Branding',
-      category: 'Design',
-      description: 'Complete visual identity including logo and menu design',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gradient: 'from-yellow-500 to-orange-500',
-    },
-  ];
 
   const filteredProjects =
     activeFilter === 'All'
@@ -66,7 +24,7 @@ const Projects = () => {
       className="py-20 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.03]" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-blue-500/5 to-purple-500/5 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] h-[50vw] max-w-[800px] max-h-[800px] bg-gradient-to-b from-blue-500/5 to-purple-500/5 rounded-full blur-[120px]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -75,7 +33,7 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -108,23 +66,47 @@ const Projects = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
             <motion.div
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               layout
-              className="group relative"
+              className="group relative cursor-pointer"
+              onClick={() => navigate(`/project/${project.id}`)}
             >
-              <div className="relative overflow-hidden rounded-2xl liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300">
+              <div className="relative overflow-hidden rounded-2xl liquid-glass hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300 hover:shadow-2xl">
                 <div className="relative h-64 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {project.video ? (
+                      <div className="w-full h-full relative">
+                           <video
+                            src={project.video}
+                            muted
+                            loop
+                            playsInline
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            onMouseEnter={(e) => e.currentTarget.play()}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.pause();
+                                e.currentTarget.currentTime = 0;
+                            }}
+                          />
+                          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
+                             <div className="p-3 bg-white/20 backdrop-blur-md rounded-full">
+                                <Play size={24} fill="white" className="text-white ml-1" />
+                             </div>
+                          </div>
+                      </div>
+                  ) : (
+                    <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  )}
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}

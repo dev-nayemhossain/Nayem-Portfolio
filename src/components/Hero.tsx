@@ -15,10 +15,11 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-animated-gradient"
     >
       {/* Enhanced Background Effects */}
+      {/* Enhanced Background Effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/30 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-pink-500/20 to-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] bg-blue-500/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] max-w-[500px] max-h-[500px] bg-purple-500/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] bg-gradient-to-r from-pink-500/20 to-blue-500/20 rounded-full blur-3xl" />
       </div>
 
       {/* Floating Particles */}
@@ -126,7 +127,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-10 leading-tight"
+          className="text-fluid-title font-bold mb-fluid-md leading-tight"
         >
           <span className="text-gray-900 dark:text-white text-shadow-lg">I design & build</span>
           <br />
@@ -140,7 +141,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
         >
           Professional Graphics Designer & Web Developer with{' '}
           <span className="font-semibold text-blue-600 dark:text-blue-400">7+ years of experience</span>{' '}
@@ -175,7 +176,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('contact')}
-            className="glass-card-hover px-8 py-4 rounded-full font-semibold text-gray-900 dark:text-white"
+            className="glass-card-hover px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-gray-900 dark:text-white"
           >
             Hire Me
           </motion.button>

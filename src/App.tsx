@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
+import ProjectDetail from './components/ProjectDetail';
 
 // Smooth scroll wrapper to handle hash navigation on route change
 const ScrollToTop = () => {
@@ -30,6 +31,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
         </Routes>
     </Router>
   );

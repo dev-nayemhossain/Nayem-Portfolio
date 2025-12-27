@@ -66,9 +66,9 @@ const Testimonials = () => {
     <section
       id="testimonials"
       ref={ref}
-      className="py-32 relative overflow-hidden border-t border-gray-200/50 dark:border-gray-800/50"
+      className="py-fluid-xl relative overflow-hidden border-t border-gray-200/50 dark:border-gray-800/50"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-r from-teal-500/10 to-emerald-500/10 rounded-full blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[40vw] max-w-[800px] max-h-[500px] bg-gradient-to-r from-teal-500/10 to-emerald-500/10 rounded-full blur-[120px]" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
@@ -81,7 +81,7 @@ const Testimonials = () => {
             <Star size={14} className="fill-blue-600 dark:fill-blue-400" />
             <span>Success Stories</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
             Client <span className="gradient-text">Testimonials</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">

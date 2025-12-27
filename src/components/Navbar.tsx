@@ -62,7 +62,7 @@ const Navbar = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-fluid-xs md:px-6 py-4">
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -77,7 +77,7 @@ const Navbar = () => {
                     className="relative h-10 w-10 object-contain p-1 rounded-full border-2 border-white/50 dark:border-white/10 shadow-lg bg-black" 
                 />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent transform group-hover:scale-[1.02] transition-transform duration-300">
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent transform group-hover:scale-[1.02] transition-transform duration-300 text-shadow">
               Nayem Hossain
             </span>
           </motion.div>
